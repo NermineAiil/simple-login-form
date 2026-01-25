@@ -51,6 +51,11 @@
         .submit-btn:hover {
             background-color: rgb(70, 70, 255);
         }
+        #out{
+            color:white;
+            font-size:16px;
+            
+        }
     </style>
 </head>
 
@@ -60,14 +65,41 @@
         <input type="text" class="input-field" placeholder="First Name">
         <input type="text" class="input-field" placeholder="Last Name">
         <input type="text" class="input-field" placeholder="Username">
-        <input type="email" class="input-field" placeholder="Email">
-        <input type="password" class="input-field" placeholder="Password">
-        <input type="submit" class="submit-btn" value="Send">
+        <input type="Email" class="input-field" id="email" placeholder="Email">
+        <input type="password"  id="password" class="input-field" placeholder="Password">
+        <input type="button" class="submit-btn" onclick="validation();"  value="Send">
+        <p id="out" ></p>
     </form>
+    <script>
+        function validation()
+        {
+        let pass=document.getElementById("password").value;
+        let email=document.getElementById("email").value;
+        let p=document.getElementById("out");
+       if(!email.endsWith("@gmail.com"))
+       {
+        p.textContent="Please enter a valid Gmail address";
+        p.style.color="red";
+        return;
+       }
+      else if(pass.length<8)
+       {
+        p.textContent="Password must be at least 8 character long";
+        p.style.color="red";
+        return;
+       }
+       else
+       p.textContent="Form submitted successfully!";
+    p.style.color="green";
+    }
+
+
+    </script>
 
 </body>
 </html>
     
+
 
 
 
